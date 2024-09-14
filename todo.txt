@@ -1,3 +1,0 @@
-Base de datos: 
-1) users (id - fullname - email)
-2) musics (id - name - imgName - sourceName)
