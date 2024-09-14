@@ -64,7 +64,7 @@ body{
 .promo-title{
 	font-size: 40px;
 	font-weight: 600;
-	margin-top: 100px;
+	margin-top: 10px;
 }
 .bottom-img{
 	width: 100%;
@@ -80,7 +80,7 @@ body{
 /* footer ---------------------------- */
 #social-media{
 	background: #343F55;
-	margin-top: 80px;
+	margin-top: 30px;
 	padding-top: 50px;
 	padding-bottom: 1px;
 }
