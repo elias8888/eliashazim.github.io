@@ -1,42 +1,3 @@
-<?php
-
-	$message = '';
-
-	if( isset($_POST['send']) ){
-		/* Make sure values are correct and valid */
-                $getemail = $_POST['inputEmail'];
-                $getfullname = $_POST['inputFullName'];
-
-  							require ("pages/database.php");
-
-
-                $sql= "SELECT email, fullname FROM users WHERE email = '$getemail'";	
-							 	$columna1='';
-							 	$columna2='';
-							 	$stat = $conn->query($sql);
-								while ($row = $stat->fetch_assoc()){ 	//procesar datos
-									$columna1 = $row['email'];
-									$columna2 = $row['fullname'];
-								}
-
-								if($columna1==$getemail){	//verificar el nombre del usuario
-								 	$message="We Found This User In Our Database.";
-								}else{
-									//$message="Usuario no encontrado";
-									//se registra el nuevo usuario
-									if(!empty($getemail)&&!empty($getfullname)){
-									$sql = "INSERT INTO users (email, fullname) VALUES ('$getemail', '$getfullname')";
-									if ($conn->query($sql)===TRUE) {
-									    $message = 'Thanks For Registration, We Can Keep Touch...';
-									} else {
-									    $message = 'Error';
-									}
-									
-								}
-								$conn->close();
-								}	
-	}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -126,19 +87,7 @@
 			</div>
 
 			<div class="col-md-6" style="margin-top: 30px;">
-				<form method="POST">
-				  <div class="mb-3">
-				    <label for="inputEmail" class="form-label">Email address</label>
-				    <input type="email" name="inputEmail" class="form-control" id="inputEmail" aria-describedby="emailHelp" required>
-				    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-				  </div>
-				  <div class="mb-3">
-				    <label for="inputFullName" class="form-label">Full name</label>
-				    <input type="text" name="inputFullName" class="form-control" id="inputFullName" required>
-				  </div>
-				  <p class="form-text" style="margin-top:-10px;"><?php echo "{$message}"; ?></p>
-				  <button type="submit" class="btn btn-primary" name="send" style="margin: 0 auto; display: block; padding-left: 50px; padding-right: 50px;">Submit</button>
-				</form>
+				
 			</div>
 		</div>
 	</div>
